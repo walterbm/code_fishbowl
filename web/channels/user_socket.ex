@@ -2,7 +2,7 @@ defmodule CodeFishbowl.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", CodeFishbowl.RoomChannel
+  channel "bowl:*", CodeFishbowl.BowlChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
