@@ -1,1 +1,25 @@
 /* This file is for your main application css. */
+
+* {
+  box-sizing: border-box;
+}
+html, body, .container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #002240;
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: white;
+}
+
+#editor {
+  margin: 0 auto;
+  width: 80vw;
+  height: 600px;
+  font-size: 17px;
+}

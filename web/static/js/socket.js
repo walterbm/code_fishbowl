@@ -3,7 +3,8 @@
 
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/my_app/endpoint.ex":
-import {Socket} from "phoenix"
+import { Socket } from "phoenix"
+import editor from './editor'
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
@@ -55,19 +56,21 @@ socket.connect()
 
 let channel = socket.channel("bowl:lobby", {})
 let chatInput = document.querySelector("#chat-input")
+let editorInput = document.querySelector("#editor")
 let messagesContainer = document.querySelector("#messages")
 
-chatInput.addEventListener("keypress", event => {
-  if(event.keyCode === 13){
-    channel.push("new_msg", {body: chatInput.value})
-    chatInput.value = ""
+editor.getSession().on('change', (e) => {
+  if (e.lines.length === 1) {
+    let msg = {body: editor.getValue(), row: e.end.row, column: e.end.column}
+    channel.push("editor_change", msg)
   }
-})
+});
 
-channel.on("new_msg", payload => {
-  let messageItem = document.createElement("li");
-  messageItem.innerText = `[${Date()}] ${payload.body}`
-  messagesContainer.appendChild(messageItem)
+channel.on("editor_change", payload => {
+  if (editor.getValue() !== payload.body) {
+    editor.getSession().setValue(payload.body)
+    editor.moveCursorToPosition({row: payload.row, column: payload.column})
+  }
 })
 
 channel.join()

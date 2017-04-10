@@ -1,19 +1,19 @@
 defmodule CodeFishbowl.BowlChannel do
   use Phoenix.Channel
 
-  intercept ["new_msg"]
+  intercept ["editor_change"]
 
   def join("bowl:lobby", _message, socket) do
     {:ok, socket}
   end
 
-  def handle_in("new_msg", %{"body" => body}, socket) do
-    broadcast! socket, "new_msg", %{body: body}
+  def handle_in("editor_change", %{"body" => body, "row" => row, "column" => column}, socket) do
+    broadcast! socket, "editor_change", %{body: body, row: row, column: column}
     {:noreply, socket}
   end
 
-  def handle_out("new_msg", payload, socket) do
-    push socket, "new_msg", payload
+  def handle_out("editor_change", payload, socket) do
+    push socket, "editor_change", payload
     {:noreply, socket}
   end
 end
