@@ -58,6 +58,19 @@ let channel = socket.channel("bowl:lobby", {})
 let chatInput = document.querySelector("#chat-input")
 let editorInput = document.querySelector("#editor")
 let messagesContainer = document.querySelector("#messages")
+let selectLang = document.querySelector("#select_lang")
+
+
+
+select_lang.onchange = (e) => {
+  editor.getSession().setMode(`ace/mode/${event.target.value}`);
+};
+
+function changeEventHandler(event) {
+    // You can use “this” to refer to the selected element.
+    if(!event.target.value) alert('Please Select One');
+    else alert('You like ' + event.target.value + ' ice cream.');
+}
 
 editor.getSession().on('change', (e) => {
   if (e.lines.length === 1) {
