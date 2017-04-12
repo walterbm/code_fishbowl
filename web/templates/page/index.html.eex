@@ -2,7 +2,6 @@
 <div id="editor">const ABACUS = (number, carry = 0) => {
   let size = number.length - 1;
 
-
   if(number[size - carry] === 9) {
     number[size - carry] = 0;
     ABACUS(number, carry + 1)
@@ -15,6 +14,4 @@
   }
 
   return number;
-}
-
 }</div>
