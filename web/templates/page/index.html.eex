@@ -1,4 +1,4 @@
-<%= select :select, :lang, ["JavaScript": "javascript", "Python": "python"] %>
+<%= select :select, :lang, langs() %>
 <div id="editor">const ABACUS = (number, carry = 0) => {
   let size = number.length - 1;
 

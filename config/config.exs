@@ -18,6 +18,46 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+
+config :code_fishbowl, :languages,
+  [
+    "JavaScript": "javascript",
+    "CSS": "css",
+    "Elixir": "elixir",
+    "Elm": "elm",
+    "Erlang": "erlang",
+    "Go": "golang",
+    "Haskell": "haskell",
+    "HTML": "html",
+    "Java": "java",
+    "JSON": "json",
+    "JSX": "jsx",
+    "Kotlin": "kotlin",
+    "LaTeX": "latex",
+    "Lisp": "lisp",
+    "Markdown": "markdown",
+    "ObjectiveC": "objectivec",
+    "OCaml": "ocaml",
+    "Perl": "perl",
+    "PHP": "php",
+    "Protobuf": "protobuf",
+    "Python": "python",
+    "R": "r",
+    "Ruby": "ruby",
+    "Rust": "rust",
+    "SASS": "sass",
+    "Scala": "scala",
+    "Scheme": "scheme",
+    "SCSS": "scss",
+    "SH": "sh",
+    "SQL": "sql",
+    "Swift": "swift",
+    "Text": "text",
+    "Typescript": "typescript",
+    "XML": "xml",
+    "YAML": "yaml"
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
