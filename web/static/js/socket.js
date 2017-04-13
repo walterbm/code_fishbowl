@@ -60,17 +60,11 @@ let editorInput = document.querySelector("#editor")
 let messagesContainer = document.querySelector("#messages")
 let selectLang = document.querySelector("#select_lang")
 
-
-
 select_lang.onchange = (e) => {
   editor.getSession().setMode(`ace/mode/${event.target.value}`);
+  let msg = {lang: event.target.value}
+  channel.push("lang_change", msg)
 };
-
-function changeEventHandler(event) {
-    // You can use “this” to refer to the selected element.
-    if(!event.target.value) alert('Please Select One');
-    else alert('You like ' + event.target.value + ' ice cream.');
-}
 
 editor.getSession().on('change', (e) => {
   if (e.lines.length === 1) {
@@ -83,6 +77,13 @@ channel.on("editor_change", payload => {
   if (editor.getValue() !== payload.body) {
     editor.getSession().setValue(payload.body)
     editor.moveCursorToPosition({row: payload.row, column: payload.column})
+  }
+})
+
+channel.on("lang_change", payload => {
+  if (editor.getSession().getMode().$id !== `ace/mode/${payload.lang}`) {
+    selectLang.value = payload.lang;
+    editor.getSession().setMode(`ace/mode/${payload.lang}`);
   }
 })
 

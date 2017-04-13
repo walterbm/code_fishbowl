@@ -5,9 +5,7 @@
   if(number[size - carry] === 9) {
     number[size - carry] = 0;
     ABACUS(number, carry + 1)
-  }
-
-  if (number[size - carry]) {
+  } else if (number[size - carry] >= 0) {
     number[size - carry] += 1
   } else {
     number.unshift(1);
