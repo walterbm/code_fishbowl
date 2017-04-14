@@ -1,7 +1,7 @@
 const editor = ace.edit("editor");
 
 editor.$blockScrolling = Infinity;
-editor.setTheme("ace/theme/cobalt");
+editor.setTheme("ace/theme/chaos");
 editor.setShowInvisibles(true);
 editor.setBehavioursEnabled(false);
 editor.setShowPrintMargin(false);

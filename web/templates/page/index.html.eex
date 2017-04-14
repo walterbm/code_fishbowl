@@ -1,4 +1,3 @@
-<%= select :select, :lang, langs() %>
 <div id="editor">const ABACUS = (number, carry = 0) => {
   let size = number.length - 1;
 
@@ -13,3 +12,6 @@
 
   return number;
 }</div>
+<div class="select">
+ <%= select :select, :lang, langs() %>
+</div>

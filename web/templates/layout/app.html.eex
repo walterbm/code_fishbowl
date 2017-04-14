@@ -9,6 +9,7 @@
 
     <title>Code Fishbowl</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Jura|Rajdhani|Unica+One" rel="stylesheet">
   </head>
 
   <body>
