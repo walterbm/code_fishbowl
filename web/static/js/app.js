@@ -11,11 +11,23 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+import 'phoenix_html';
+import MainView from './views/main';
+import loadView from './views'
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
+function handleDOMContentLoaded() {
+  const viewName = document.getElementsByTagName('body')[0].dataset.jsViewName;
 
-import socket from "./socket"
+  const ViewClass = loadView(viewName);
+  const view = new ViewClass();
+  view.mount();
+
+  window.currentView = view;
+}
+
+function handleDocumentUnload() {
+  window.currentView.unmount();
+}
+
+window.addEventListener('DOMContentLoaded', handleDOMContentLoaded, false);
+window.addEventListener('unload', handleDocumentUnload, false);
