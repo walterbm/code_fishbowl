@@ -37,13 +37,15 @@ defmodule CodeFishbowl.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.0"},
-     {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
-     {:edeliver, "~> 1.4.2"},
-    {:distillery, ">= 0.8.0", warn_missing: false}]
+    [
+      {:phoenix, "~> 1.2.0"},
+      {:phoenix_pubsub, "~> 1.0"},
+      {:phoenix_html, "~> 2.6"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:gettext, "~> 0.11"},
+      {:cowboy, "~> 1.0"},
+      {:edeliver, "~> 1.4.2"},
+      {:distillery, ">= 0.8.0", warn_missing: false}
+    ]
   end
 end

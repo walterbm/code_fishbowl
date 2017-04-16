@@ -10,6 +10,7 @@ defmodule CodeFishbowl do
     children = [
       # Start the endpoint when the application starts
       supervisor(CodeFishbowl.Endpoint, []),
+      supervisor(BowlCache.Supervisor, []),
       # Start your own worker by calling: CodeFishbowl.Worker.start_link(arg1, arg2, arg3)
       # worker(CodeFishbowl.Worker, [arg1, arg2, arg3]),
     ]
