@@ -14,9 +14,15 @@ defmodule CodeFishbowl.Router do
   end
 
   scope "/", CodeFishbowl do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", BowlController, :index
+
+    scope "/bowls" do
+      post "/", BowlController, :new
+      get "/:bowl", BowlController, :show
+    end
+    
   end
 
   # Other scopes may use custom stacks.

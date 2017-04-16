@@ -5,6 +5,10 @@ defmodule CodeFishbowl.BowlChannel do
     {:ok, socket}
   end
 
+  def join("bowl:" <> _bowl_id, _params, socket) do
+    {:ok, socket}
+  end
+
   def handle_in("editor_change", %{"body" => body, "row" => row, "column" => column}, socket) do
     broadcast! socket, "editor_change", %{body: body, row: row, column: column}
     {:noreply, socket}

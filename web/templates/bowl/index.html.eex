@@ -1,0 +1,3 @@
+<%= form_for @conn, bowl_path(@conn, :new), [as: :new], fn f -> %>
+  <%= submit "New Bowl" %>
+<% end %>

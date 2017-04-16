@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Jura|Rajdhani|Unica+One" rel="stylesheet">
   </head>
 
-  <body>
+  <body data-js-view-name="<%= js_view_name(@conn, @view_template) %>">
     <div class="container">
       <header class="header">
         <h1>Code Fishbowl</h1>
