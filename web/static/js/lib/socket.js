@@ -33,6 +33,19 @@ export default function bootSocket(editor) {
     }
   })
 
+  channel.on("editor_set", payload => {
+    if (editor.getSession().getMode().$id !== `ace/mode/${payload.lang}`) {
+      console.log('SETTING LANG')
+      selectLang.value = payload.lang;
+      editor.getSession().setMode(`ace/mode/${payload.lang}`);
+    }
+    if (editor.getValue() !== payload.body) {
+      console.log('SETTING BODY')
+      editor.getSession().setValue(payload.body)
+      editor.moveCursorToPosition({row: payload.row, column: payload.column})
+    }
+  })
+
   channel.on("lang_change", payload => {
     if (editor.getSession().getMode().$id !== `ace/mode/${payload.lang}`) {
       selectLang.value = payload.lang;
