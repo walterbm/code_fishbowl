@@ -16,16 +16,27 @@ defmodule CodeFishbowl.BowlCacheTest do
     assert BowlCache.Cache.fetch("A") == {:ok, mock_bowl}
   end
 
+  test "sets a default value if key is not found" do
+    mock_bowl = %{body: "var test = 42", row: "1", column: "6", lang: "javascript"}
+
+    assert BowlCache.Cache.fetch("A") == {:error, :not_found}
+    assert BowlCache.Cache.fetch("A", mock_bowl) == {:ok, mock_bowl}
+
+    assert BowlCache.Cache.fetch("A") == {:ok, mock_bowl}
+  end
+
   test "correctly updates cache" do
     mock_bowl = %{body: "var test = 42", row: "1", column: "6", lang: "javascript"}
 
     BowlCache.Cache.save("A", mock_bowl)
     assert BowlCache.Cache.fetch("A") == {:ok, mock_bowl}
 
-    updated_bowl = %{body: "const test = 42", row: "1", column: "6", lang: "javascript"}
+    updated = %{lang: "python"}
+
+    updated_bowl = Map.merge(mock_bowl, updated)
 
     assert BowlCache.Cache.update("A", updated_bowl) == updated_bowl
     assert BowlCache.Cache.fetch("A") == {:ok, updated_bowl}
   end
-  
+
 end

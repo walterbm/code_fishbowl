@@ -12,6 +12,13 @@ defmodule BowlCache.Cache do
     get(id)
   end
 
+  def fetch(id, default) do
+    case get(id) do
+      {:ok, result} -> {:ok, result}
+      {:error, _} -> save(id, default)
+    end
+  end
+
   def save(id, value) do
     set(id, value)
     {:ok, value}
@@ -19,7 +26,7 @@ defmodule BowlCache.Cache do
 
   def update(id, value) do
     case get(id) do
-      {:ok, _result} -> set(id, value)
+      {:ok, result} -> set(id, Map.merge(result,value))
       error -> error
     end
   end
