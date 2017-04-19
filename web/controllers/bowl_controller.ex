@@ -1,16 +1,27 @@
 defmodule CodeFishbowl.BowlController do
   use CodeFishbowl.Web, :controller
 
+  alias BowlCache.Cache
+
   def index(conn, _params) do
     render conn, "index.html"
   end
 
   def new(conn, _params) do
-    redirect conn, to: "/bowls/#{gen_bowl_hash()}"
+    redirect conn, to: "/bowls/#{bowl_hash()}"
   end
 
   def show(conn, %{"bowl" => _bowl}) do
     render conn, "show.html"
+  end
+
+  defp bowl_hash() do
+    hash = gen_bowl_hash()
+    if Cache.exists?(hash) do
+      bowl_hash()
+    else
+      hash
+    end
   end
 
   defp gen_bowl_hash() do
