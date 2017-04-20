@@ -13,7 +13,7 @@ html, body, .container {
 
 h1 {
   text-align: center;
-  font-size: 35px;
+  font-size: 45px;
   font-family: 'Bungee Hairline', sans-serif;
   color: white;
 }
@@ -83,17 +83,14 @@ select::-ms-expand {
 }
 
 /* New Bowl Button */
-.new-bowl-submit {
+.new-bowl {
   background: none;
-}
-
-#new-bowl-button {
   width: 140px;
   padding: 6px;
   height: 50px;
   color: #f6f6f6;
   font-family: 'Bungee Hairline', sans-serif;
-  font-size: 2.5em;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   position: absolute;
@@ -112,24 +109,24 @@ select::-ms-expand {
   cursor: pointer;
   box-shadow: 0px 0px 0px #fff;
 }
-#new-bowl-button:hover {
+.new-bowl:hover {
   text-shadow: 0px 8px 6px rgba(0, 0, 0, 0.9);
   box-shadow: 8px 8px 0px #fff, -8px -8px 0px #fff;
 }
-#new-bowl-button:hover .one {
+.new-bowl:hover .one {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px);
 }
-#new-bowl-button:hover .two {
+.new-bowl:hover .two {
   transform: translate3d(0px, 0px, 0px);
 }
-#new-bowl-button:hover .three {
+.new-bowl:hover .three {
   transform: translate3d(0px, 0px, 0px);
 }
-#new-bowl-button:hover .four {
+.new-bowl:hover .four {
   transform: translate3d(0px, 0px, 0px);
 }
-#new-bowl-button .ring {
+.new-bowl .ring {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -138,7 +135,7 @@ select::-ms-expand {
   left: 0;
   transform: translate3d(0px, 90px, 0px);
 }
-#new-bowl-button .one {
+.new-bowl .one {
   background-color: #FE6B26;
   -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
   -moz-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
@@ -147,7 +144,7 @@ select::-ms-expand {
   z-index: -3;
   z-index: -4;
 }
-#new-bowl-button .two {
+.new-bowl .two {
   background-color: #FE8EFE;
   -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   -moz-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
@@ -155,7 +152,7 @@ select::-ms-expand {
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -3;
 }
-#new-bowl-button .three {
+.new-bowl .three {
   background-color: #841EE4;
   z-index: -2;
   -webkit-transition: all 0.7s cubic-bezier(0.55, 0, 0.1, 1);
@@ -164,7 +161,7 @@ select::-ms-expand {
   transition: all 0.7s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -3;
 }
-#new-bowl-button .four {
+.new-bowl .four {
   background-color: #3E12FD;
   z-index: -1;
   -webkit-transition: all 0.9s cubic-bezier(0.55, 0, 0.1, 1);

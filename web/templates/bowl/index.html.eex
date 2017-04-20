@@ -1,10 +1,9 @@
 <%= form_for @conn, bowl_path(@conn, :new), [as: :new], fn _f -> %>
-  <div id="new-bowl-button">
+  <%= submit [class: "new-bowl"] do %>
     Bowl
     <div class="ring one"></div>
     <div class="ring two"></div>
     <div class="ring three"></div>
     <div class="ring four"></div>
-  </div>
-  <%= submit "", [id: "new-bowl-button", class: "new-bowl-submit"] %>
+  <% end %>
 <% end %>
