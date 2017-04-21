@@ -35,14 +35,14 @@ export default class Channel {
   }
 
   handleEditorChange(e) {
-    if (e.lines.length === 1) {
+    if (e.lines.length === 1 && this.editor.getValue()) {
       let msg = {body: this.editor.getValue(), row: e.end.row, column: e.end.column}
       this.channel.push("editor_change", msg)
     }
   }
 
   handleEditorChangeIn(payload) {
-    if (this.editor.getValue() !== payload.body) {
+    if (payload.body && this.editor.getValue() !== payload.body) {
       this.editor.setValue(payload.body)
       this.editor.setCursor({row: payload.row, column: payload.column})
     }
