@@ -67,13 +67,13 @@ color:#FF308F;\
 color:#1EDAFB;\
 }\
 .ace-chaos .ace_constant.ace_language {\
-color:#FDC251;\
+  color: #FFB86C;\
 }\
 .ace-chaos .ace_constant.ace_library {\
 color:#8DFF0A;\
 }\
 .ace-chaos .ace_constant.ace_numeric {\
-color:#58C554;\
+  color: #BD93F9\
 }\
 .ace-chaos .ace_invalid {\
 color:#FFFFFF;\
@@ -93,60 +93,76 @@ color:#00AEEF;\
 color:#00AEEF;\
 }\
 .ace-chaos .ace_string {\
-color:#58C554;\
+  color:#F1FA8C\
 }\
 .ace-chaos .ace_comment {\
-color:#555;\
-font-style:italic;\
-padding-bottom: 0px;\
+  color: #6272A4;\
+  font-style:italic;\
+  padding-bottom: 0px;\
 }\
 .ace-chaos .ace_variable {\
-color:#997744;\
+  color: #FFB86C\
 }\
 .ace-chaos .ace_meta.ace_tag {\
-color:#BE53E6;\
+  color:#BE53E6;\
 }\
 .ace-chaos .ace_entity.ace_other.ace_attribute-name {\
-color:#FFFF89;\
+  color:#FFFF89;\
 }\
 .ace-chaos .ace_markup.ace_underline {\
-text-decoration: underline;\
+  text-decoration: underline;\
 }\
 .ace-chaos .ace_fold-widget {\
-text-align: center;\
+  text-align: center;\
 }\
 .ace-chaos .ace_fold-widget:hover {\
-color: #777;\
+  color: #777;\
 }\
 .ace-chaos .ace_fold-widget.ace_start,\
 .ace-chaos .ace_fold-widget.ace_end,\
 .ace-chaos .ace_fold-widget.ace_closed{\
-background: none;\
-border: none;\
-box-shadow: none;\
+  background: none;\
+  border: none;\
+  box-shadow: none;\
 }\
 .ace-chaos .ace_fold-widget.ace_start:after {\
-content: '▾'\
+  content: '▾'\
 }\
 .ace-chaos .ace_fold-widget.ace_end:after {\
-content: '▴'\
+  content: '▴'\
 }\
 .ace-chaos .ace_fold-widget.ace_closed:after {\
-content: '‣'\
+  content: '‣'\
 }\
 .ace-chaos .ace_indent-guide {\
-border-right:1px dotted #333;\
-margin-right:-1px;\
+  border-right:1px dotted #333;\
+  margin-right:-1px;\
 }\
 .ace-chaos .ace_fold { \
-background: #222; \
-border-radius: 3px; \
-color: #7AF; \
-border: none; \
+  background: #222; \
+  border-radius: 3px; \
+  color: #7AF; \
+  border: none; \
 }\
 .ace-chaos .ace_fold:hover {\
-background: #CCC; \
-color: #000;\
+  background: #CCC; \
+  color: #000;\
+}\
+.ace-chaos .ace_keyword,\
+.ace-chaos .ace_meta,\
+.ace-chaos .ace_storage,\
+.ace-chaos .ace_storage.ace_type,\
+.ace-chaos .ace_support.ace_type {\
+  color: #FF79C6\
+}\
+.ace-chaos .ace_identifier {\
+  color: #50FA7B;\
+}\
+.ace_punctuation + .ace_identifier {\
+  color: #66D9EF;\
+}\
+.ace_keyword.ace_control.ace_elixir{\
+  color: #50FA7B;\
 }\
 ";
 
