@@ -24,6 +24,7 @@ defmodule CodeFishbowl.Mixfile do
         :cowboy,
         :logger,
         :gettext,
+        :distillery,
         :edeliver
       ]
     ]
