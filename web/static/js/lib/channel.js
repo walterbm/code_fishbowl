@@ -35,6 +35,7 @@ export default class Channel {
   }
 
   handleEditorChange(e) {
+    console.log(e);
     if (e.lines.length === 1 && this.editor.getValue()) {
       let msg = {body: this.editor.getValue(), row: e.end.row, column: e.end.column}
       this.channel.push("editor_change", msg)

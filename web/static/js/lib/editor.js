@@ -16,23 +16,23 @@ export default class Editor {
   }
 
   getSession() {
-    return this.editor.getSession()
+    return this.editor.getSession();
   }
 
   getValue() {
-    return this.editor.getValue()
+    return this.editor.getValue();
   }
 
   getLang() {
-    return this.editor.getSession().getMode().$id
+    return this.editor.getSession().getMode().$id;
   }
 
   setValue(value) {
-    this.editor.getSession().setValue(value)
+    this.editor.getSession().setValue(value);
   }
 
   setCursor({ row, column }) {
-    this.editor.moveCursorToPosition({ row, column })
+    this.editor.moveCursorToPosition({ row, column });
   }
 
   setLang(lang) {
