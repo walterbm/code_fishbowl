@@ -2,11 +2,13 @@ AUTO_VERSION=commit-count+git-revision+branch-unless-master
 
 USING_DISTILLERY="true"
 
-APP="code_bowl"
+APP="code_fishbowl"
 
 BUILD_HOST="104.131.16.3"
 BUILD_USER="builder"
 BUILD_AT="/tmp/edeliver/code_bowl/builds"
+
+RELEASE_DIR="$BUILD_AT/apps/$APP/rel/$APP"
 
 STAGING_HOSTS="104.131.16.3"
 STAGING_USER="web"
