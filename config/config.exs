@@ -58,8 +58,7 @@ config :code_fishbowl, :languages,
     "Swift": "swift",
     "Text": "text",
     "Typescript": "typescript",
-    "XML": "xml",
-    "YAML": "yaml"
+    "XML": "xml"
   ]
 
 # Import environment specific config. This must remain at the bottom
