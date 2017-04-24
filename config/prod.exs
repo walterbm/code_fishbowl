@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :code_fishbowl, CodeFishbowl.Endpoint,
   http: [port: 8888],
-  url: [host: "example.com"],
+  url: [host: "104.131.16.3"],
   cache_static_manifest: "priv/static/manifest.json",
   root: ".",
   server: true,
