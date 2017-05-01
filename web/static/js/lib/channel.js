@@ -1,4 +1,5 @@
 import { Socket } from "phoenix"
+import debounce from './debounce';
 
 export default class Channel {
 
@@ -17,7 +18,7 @@ export default class Channel {
 
     /* Change Callbacks */
     this.selectLang.onchange = this.handleLangChange.bind(this)
-    this.channel.on("editor_change", this.handleEditorChangeIn.bind(this))
+    this.channel.on("editor_change", debounce(this.handleEditorChangeIn.bind(this), 20))
     this.channel.on("lang_change", this.handleLangChangeIn.bind(this))
     this.channel.on("editor_set", this.handleEditorSetIn.bind(this))
     this.editor.getSession().on('change', this.handleEditorChange.bind(this))
@@ -35,15 +36,15 @@ export default class Channel {
   }
 
   handleEditorChange(e) {
-    console.log(e);
-    if (e.lines.length === 1 && this.editor.getValue()) {
-      let msg = {body: this.editor.getValue(), row: e.end.row, column: e.end.column}
-      this.channel.push("editor_change", msg)
-    }
+    console.log("EDITOR CHANGE", e);
+    console.log("EDITOR VALUE", this.editor.getValue())
+    let msg = {body: this.editor.getValue(), row: e.end.row, column: e.end.column}
+    console.log("MSG", msg);
+    this.channel.push("editor_change", msg)
   }
 
   handleEditorChangeIn(payload) {
-    if (payload.body && this.editor.getValue() !== payload.body) {
+    if (payload.body !== this.editor.getValue()) {
       this.editor.setValue(payload.body)
       this.editor.setCursor({row: payload.row, column: payload.column})
     }
