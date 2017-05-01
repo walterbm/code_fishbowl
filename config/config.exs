@@ -18,12 +18,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-
+# Configures Supported Syntax Highlighting
 config :code_fishbowl, :languages,
   [
     "JavaScript": "javascript",
-    "C": "c_cpp",
-    "C++": "c_cpp",
+    "C/C++": "c_cpp",
     "C#": "csharp",
     "Clojure": "clojure",
     "CSS": "css",
