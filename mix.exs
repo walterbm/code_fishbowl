@@ -46,7 +46,7 @@ defmodule CodeFishbowl.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:edeliver, "~> 1.4.2"},
-      {:distillery, "~> 0.10", warn_missing: false}
+      {:distillery, "~> 1.3", warn_missing: false}
     ]
   end
 end
