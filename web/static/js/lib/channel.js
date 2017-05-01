@@ -18,7 +18,7 @@ export default class Channel {
 
     /* Change Callbacks */
     this.selectLang.onchange = this.handleLangChange.bind(this)
-    this.channel.on("editor_change", debounce(this.handleEditorChangeIn.bind(this), 20))
+    this.channel.on("editor_change", debounce(this.handleEditorChangeIn.bind(this), 100))
     this.channel.on("lang_change", this.handleLangChangeIn.bind(this))
     this.channel.on("editor_set", this.handleEditorSetIn.bind(this))
     this.editor.getSession().on('change', this.handleEditorChange.bind(this))
@@ -36,10 +36,7 @@ export default class Channel {
   }
 
   handleEditorChange(e) {
-    console.log("EDITOR CHANGE", e);
-    console.log("EDITOR VALUE", this.editor.getValue())
     let msg = {body: this.editor.getValue(), row: e.end.row, column: e.end.column}
-    console.log("MSG", msg);
     this.channel.push("editor_change", msg)
   }
 

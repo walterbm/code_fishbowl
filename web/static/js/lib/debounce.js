@@ -3,7 +3,6 @@ const debounce = (fn, wait) => {
   return function() {
     const context = this, args = arguments;
     const later = () => {
-      console.log("LATER")
       timeout = null;
       fn.apply(context, args);
     };
